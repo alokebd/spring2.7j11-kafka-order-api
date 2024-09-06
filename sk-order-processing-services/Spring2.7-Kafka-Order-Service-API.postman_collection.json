@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "298b6292-6317-4c6e-846c-0bbbed4f3540",
+		"name": "Spring2.7-Kafka-Order-Service-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33936986"
+	},
+	"item": [
+		{
+			"name": "Publish Kafka Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerName\": \"Alex3\",\r\n    \"totalCost\": 200.25,\r\n    \"address\": \"250YS, Toronto, CA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/orders/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"orders",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment by Order ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerCardNumber\": \"4724-0000-1111-6566\",\r\n    \"amount\": 200.25,\r\n    \"customerName\": \"Alex3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9292/payments/order/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9292",
+					"path": [
+						"payments",
+						"order",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Orders For Shipping",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9293/shipping/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9293",
+					"path": [
+						"shipping",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shipped Order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 101,\r\n    \"customerName\": \"Aloke\",\r\n    \"totalCost\": 100.25,\r\n    \"address\": \"17FA, Toronto, CA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9293/shipping/v2/shipped/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9293",
+					"path": [
+						"shipping",
+						"v2",
+						"shipped",
+						"17"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
